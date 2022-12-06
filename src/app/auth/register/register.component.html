@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="guest-form-card card">
+
+        <div class="card-header text-center">
+          <h2>Sign Up</h2>
+        </div>
+
+        <div class="card-body">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="example@gmail.com" [(ngModel)]="_emailAddress" (change)="validInformation()">
+            </mat-form-field>
+          <p style="color:red" *ngIf="_isEmailNotValid">*The Email is Not valid.</p>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="_password" (change)="validInformation()">
+              <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          <p style="color:red" *ngIf="_isPasswordNoCapital" >*The Password not contain a capital letter*</p>
+          <p style="color:red" *ngIf="_isPasswordMinLength" >*The password should have at least 6 letters.*</p>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" [(ngModel)]="_verifiedPassword" (change)="validInformation()">
+            <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
+              <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            </mat-form-field>
+          <p style="color:red" *ngIf="_isPasswordTheSame" >*The passwords are not the same.*</p>
+
+          <button class="btn btn-primary btn-block" [disabled]="_isRegisterDisable" (click)="addUser()">Register</button>
+        </div>
+      </div>
+    </div>
+</div>
