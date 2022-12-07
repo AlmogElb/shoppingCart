@@ -1,1 +1,15 @@
-<span>Shopping</span>
+
+<div class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="container d-flex justify-content-between">
+    <a href="#" class="navbar-brand d-flex align-items-center">
+      <strong>Products</strong>
+    </a>
+    <p  style="color:white">User Login : {{this._userLogin}}</p>
+    <button class="btn" style="color:white" (click)="doLogOut()"> Log out</button>
+    <button routerLink="cart" class="btn btn-primary" (click)="goToCart()">
+      <i style="font-size: 30px;" class="fa-solid fa-cart-plus"></i>
+    </button>
+  </div>
+</div>
+
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Users} from "../../app.component";
 
 
@@ -20,7 +20,6 @@ export class RegisterComponent {
   _verifiedPassword:string = '';
   hidePassword = true;
   hideConfirmPassword = true;
-
 
 
 
@@ -56,6 +55,13 @@ export class RegisterComponent {
     else{
       users.push(newUser);
       localStorage.setItem('USERS', JSON.stringify(users));
+      this.goToLogin(newUser.email);
     }
+  }
+
+  @Output() changePage = new EventEmitter<string>();
+
+  goToLogin(userEmail?:string) {
+    this.changePage.emit(userEmail);
   }
 }

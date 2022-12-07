@@ -1,15 +1,27 @@
-<app-nav></app-nav>
-
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="_showRegister">
     <div class="col" style="width: 100%">
-      <app-register></app-register>
+      <app-register (changePage)="goToLogin($event)"></app-register>
+    </div>
+  </div>
+  <div class="row" *ngIf="_showLogin">
+    <div class="col" style="width: 100%">
+      <app-login (changePage)="goTo($event)"></app-login>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <app-footer></app-footer>
+  <div class="row" *ngIf="_showShop">
+    <div class="col" style="width: 100%">
+      <app-shop-cart (changePage)="goTo($event)"></app-shop-cart>
     </div>
   </div>
+
+  <div class="row" *ngIf="_showCart">
+    <div class="col" style="width: 100%">
+      <app-cart></app-cart>
+    </div>
+  </div>
+
+
 </div>
+

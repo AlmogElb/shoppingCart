@@ -33,7 +33,14 @@
             </mat-form-field>
           <p style="color:red" *ngIf="_isPasswordTheSame" >*The passwords are not the same.*</p>
 
-          <button class="btn btn-primary btn-block" [disabled]="_isRegisterDisable" (click)="addUser()">Register</button>
+          <div class="row">
+            <div class="col-md-4">
+              <button class="btn btn-primary btn-block" [disabled]="_isRegisterDisable" (click)="addUser()">Register</button>
+            </div>
+            <div class="col-md-4 offset-md-4">
+              <a class="createPass" (click)="goToLogin()">Login</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
