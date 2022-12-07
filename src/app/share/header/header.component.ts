@@ -24,4 +24,8 @@ export class HeaderComponent {
   goToCart() {
     this.changePage.emit('goToCart');
   }
+
+  goToShop() {
+    this.changePage.emit('GoToShop');
+  }
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../service/api.service";
+import {CartService} from "../../service/cart.service";
 
 
 
@@ -86,25 +87,15 @@ export class ProductsComponent implements OnInit {
 
   public productList: any;
 
-  constructor() { }
+  constructor(private api : ApiService, private cartService : CartService) { }
 
   ngOnInit(): void {
-      this.productList = products;
+    this.api.getProducts().subscribe((res:any)=>{
+      this.productList = res;
+    })
   }
-
-  addItem(item: any) {
-    // @ts-ignore
-    let productsLocalStorage = JSON.parse(localStorage.getItem('PRODUCTS')) || [];
-    //check if item inside localstorage
-    let index = productsLocalStorage.findIndex((product: { id: any; }) => product.id === item.id);
-    if (index === -1) {
-      productsLocalStorage.push(item);
-      alert('Item: ' + item.name + ' added to cart');
-    }
-    else{
-      alert('this item already in cart');
-    }
-    localStorage.setItem('PRODUCTS', JSON.stringify(productsLocalStorage));
+  addItemToCart(item:any) {
+    this.cartService.addToCart(item);
   }
 }
 

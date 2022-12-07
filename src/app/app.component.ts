@@ -54,9 +54,8 @@ export class AppComponent {
     } else if ($event === 'GoToShop') {
       this.goToShop($event);
     }
-    else if($event === 'goToCart'){
+    else if($event === 'goToCart') {
       this.goToCart($event);
     }
-
   }
 }

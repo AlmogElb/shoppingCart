@@ -4,8 +4,9 @@
     <a href="#" class="navbar-brand d-flex align-items-center">
       <strong>Products</strong>
     </a>
-    <p  style="color:white">User Login : {{this._userLogin}}</p>
     <button class="btn" style="color:white" (click)="doLogOut()"> Log out</button>
+    <h4 class="navbar-brand d-flex align-items-center" >User Login : {{this._userLogin}}</h4>
+    <button class="btn btn-primary" (click)="goToShop()"> Shop More</button>
     <button routerLink="cart" class="btn btn-primary" (click)="goToCart()">
       <i style="font-size: 30px;" class="fa-solid fa-cart-plus"></i>
     </button>
