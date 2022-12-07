@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="guest-form-card card">
+
+      <div class="card-header text-center">
+        <h2>Sign In</h2>
+      </div>
+
+      <div class="card-body">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="example@gmail.com" [(ngModel)]="_emailAddress">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="_password" >
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <button class="btn btn-primary btn-block" (click)="login()">Login</button>
+          </div>
+          <div class="col-md-4 offset-md-4">
+            <a class="createPass"  (click)="Create_account()">Create an account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
