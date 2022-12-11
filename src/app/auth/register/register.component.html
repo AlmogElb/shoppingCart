@@ -20,7 +20,7 @@
                 <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
             </mat-form-field>
-          <p style="color:red" *ngIf="_isPasswordNoCapital" >*The Password not contain a capital letter*</p>
+          <p style="color:red" *ngIf="_isPasswordNoCapital" >*The password must contains a capital letter*</p>
           <p style="color:red" *ngIf="_isPasswordMinLength" >*The password should have at least 6 letters.*</p>
 
 
@@ -31,7 +31,7 @@
               <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             </mat-form-field>
-          <p style="color:red" *ngIf="_isPasswordTheSame" >*The passwords are not the same.*</p>
+          <p style="color:red" *ngIf="_isPasswordTheSame" >*The passwords do not match.*</p>
 
           <div class="row">
             <div class="col-md-4">
